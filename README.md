@@ -64,5 +64,22 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Agraga is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://equityzen.com/company/agraga
+Agraga (operated by Virya Logistics Technologies Private Limited) is a Chennai, India based digital
+cross-border logistics platform founded in 2021 by Anoop Raghavan and Venkatesh Narayanaswamy. It acts
+as a single operator across every leg of a shipment — ocean freight, air freight, domestic transport,
+customs broking, warehousing, e-commerce fulfilment and embedded trade finance — booked and tracked from
+one platform, aimed particularly at underserved Indian MSME exporters and importers.
+
+## API surface
+
+As of the 2026-09-12 enrichment pass, **Agraga publishes no public API**: no developer portal, no API
+documentation, no SDK in any registry, no GitHub organization, and no machine-readable contract
+(OpenAPI, AsyncAPI, GraphQL SDL, Postman collection or JSON Schema) at any host. Contract discovery was
+run against all seven known hosts; 63 well-known path probes returned zero documents. The company's
+platform backends (`api.agraga.com`, `pricing.agraga.com`) are private services behind a blanket
+authentication filter that answers every anonymous request with HTTP 401 — they are the backends of
+Agraga's own web application, not a product API.
+
+- https://www.agraga.com/
+- https://booking.agraga.com/ (authenticated customer console)
+- https://www.linkedin.com/company/agraga

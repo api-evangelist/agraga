@@ -1,16 +1,30 @@
 aid: agraga
 name: Agraga
-description: 'Agraga is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: Agraga (operated by Virya Logistics Technologies Private Limited) is a Chennai, India based digital
+  cross-border logistics platform founded in 2021 by Anoop Raghavan and Venkatesh Narayanaswamy. It positions itself
+  as a single operator for every leg of a shipment, bringing ocean freight, air freight, domestic transport, customs
+  broking, warehousing, e-commerce fulfilment and embedded trade finance onto one booking and tracking platform aimed
+  at underserved Indian MSME exporters and importers. It reports 700+ customers and 1,000+ vendors across 40-plus
+  markets, and raised INR 100 crore in a pre-Series B round led by Bajaj Finserv with IvyCap Ventures. As of this
+  profile Agraga publishes no public developer program, API documentation, SDK or machine-readable API contract; its
+  platform backends are private and answer every anonymous request with an authentication error.
 url: https://raw.githubusercontent.com/api-evangelist/agraga/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-12'
 modified: '2026-09-12'
 tags:
+- Logistics
+- Freight
+- Freight Forwarding
+- Supply Chain
+- Shipping
+- Customs
+- Warehousing
+- Embedded Finance
+- Trade
+- India
 - Company
 apis: []
 maintainers:
@@ -18,6 +32,61 @@ maintainers:
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+image: https://www.agraga.com/assets/agraga-logo-BtkIvqFd.png
 common:
+- type: DomainSecurity
+  url: security/agraga-domain-security.yml
+- type: LLMsTxt
+  url: llms/agraga-llms.txt
+- type: Plans
+  url: plans/agraga-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/agraga-rate-limits.yml
 - type: Website
-  url: https://equityzen.com/company/agraga
+  url: https://www.agraga.com/
+- type: About
+  url: https://www.agraga.com/about
+- type: Services
+  url: https://www.agraga.com/products
+- type: Support
+  url: https://www.agraga.com/contact
+- type: SignUp
+  url: https://booking.agraga.com/
+- type: TermsOfService
+  url: https://www.agraga.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.agraga.com/privacy-policy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/agraga
+x-tier: profiled
+x-tier-reason: 'enrichment pass 2026-09-12: full STEP 0b contract discovery run across every known host, no public
+  API surface found'
+x-enrichment:
+  date: '2026-09-12'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: 'Agraga sells freight, not software: its marketing site is a seven-route React SPA whose
+    bundle never once contains the string "API", there is no GitHub organization (api.github.com/orgs/agraga
+    returns 404) and no package in any registry, and the only API hosts that exist - api.agraga.com and
+    pricing.agraga.com, both found in Agraga''s own booking-app bundle - are private backends that answer
+    every anonymous path, well-known namespace included, with 401 {"error":"Invalid Token"}.'
+  evidence:
+  - url: https://api.agraga.com/openapi.json
+    status: 401
+  - url: https://api.agraga.com/.well-known/agent-card.json
+    status: 401
+  - url: https://pricing.agraga.com/
+    status: 401
+  - url: https://api.github.com/orgs/agraga
+    status: 404
+  - url: https://notify.agraga.com/.well-known/api-catalog
+    status: 404
+  - url: https://api.agraga.com/api-docs
+    status: 401
+  - url: https://files.agraga.com/.well-known/security.txt
+    status: 404
+  checked: '2026-09-12'

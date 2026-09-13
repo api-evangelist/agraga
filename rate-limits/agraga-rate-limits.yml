@@ -1,0 +1,24 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.agraga.com/
+note: >-
+  No rate limits are documented because Agraga publishes no API documentation of any kind. The word
+  "API" does not appear anywhere in the marketing site's application bundle, there is no developer
+  portal, and the private platform hosts (api.agraga.com, pricing.agraga.com) answer every anonymous
+  request with a 401 authentication error before any rate-limit header is emitted. No X-RateLimit-*,
+  RateLimit-* or Retry-After header was observed on any anonymous response from any Agraga host.
+  This is an honest zero, not an unchecked field.
+limit_count: 0
+rate_limits: []
+headers_observed: []
+status_code_on_exhaustion: null
+evidence:
+- url: https://api.agraga.com/
+  status: 401
+  note: 'Response headers carry no rate-limit signal; body is {"error":"Invalid Token"}.'
+- url: https://notify.agraga.com/
+  status: 200
+  note: 'Anonymous 200 version banner; no RateLimit-* or Retry-After header present.'
+- url: https://www.agraga.com/
+  status: 200
+  note: Marketing SPA; no developer or rate-limit documentation.

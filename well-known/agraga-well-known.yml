@@ -1,0 +1,305 @@
+generated: '2026-09-12'
+method: probed
+source: >-
+  Anonymous HTTPS probes of the RFC 8615 well-known path list against every host this record knows:
+  the registrable domain and www, the private platform API hosts found in Agraga's own first-party
+  application bundle (api / pricing / notify / files .agraga.com), and the customer console host
+  (booking.agraga.com).
+note: >-
+  NO well-known document is served anywhere on the Agraga estate. Every 200 recorded below is a
+  SOFT 200, not a document: agraga.com, www.agraga.com and booking.agraga.com are single-page
+  applications whose catch-all route answers 200 with the same `<!doctype html>` shell for every
+  path, and files.agraga.com answers /.well-known/api-catalog with an unrelated HTML page. The
+  api.agraga.com and pricing.agraga.com hosts sit behind a blanket authentication filter that
+  returns 401 for every path including the well-known namespace. Because no path returned a real
+  document, NO WellKnown and NO SecurityTxt pointer is emitted in apis.yml — this file records a
+  measured absence, not a presence.
+hosts:
+- host: agraga.com
+  note: SPA catch-all — every path returns the same HTML shell (soft 200, not a document).
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/api-catalog
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/agent.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+- host: www.agraga.com
+  note: SPA catch-all — identical HTML shell on every path (soft 200, not a document).
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/api-catalog
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/agent.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+- host: api.agraga.com
+  note: >-
+    Agraga's private platform API host (556 references in the booking.agraga.com application bundle).
+    A blanket authentication filter returns {"error":"Invalid Token"} for every path, well-known
+    namespace included, so no anonymous discovery document is reachable.
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/api-catalog
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/agent.json
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 401
+    result: auth-gated
+    file: null
+- host: pricing.agraga.com
+  note: Private pricing service — returns {"error":"No user in request"} on every path.
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/api-catalog
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/agent.json
+    status: 401
+    result: auth-gated
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 401
+    result: auth-gated
+    file: null
+- host: notify.agraga.com
+  note: >-
+    Notification service. Its root answers 200 with a version banner
+    {"msg":"notification server V09-07-25/05.13"} but publishes no discovery document.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    result: not-found
+    file: null
+- host: files.agraga.com
+  note: >-
+    Document/file service. Answers "Host or route not recognized" (404) for the well-known namespace;
+    /.well-known/api-catalog returns 200 but the body is an unrelated HTML page, NOT an RFC 9727
+    API catalog, so it is recorded as a soft 200 and scores nothing.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/api-catalog
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    result: not-found
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    result: not-found
+    file: null
+- host: booking.agraga.com
+  note: Customer console SPA — catch-all returns the same HTML shell on every path (soft 200).
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/api-catalog
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/agent.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    result: soft-200-html-shell
+    file: null
+summary:
+  hosts_probed: 7
+  paths_probed: 63
+  documents_found: 0
+  well_known_pointer_emitted: false
+  security_txt_pointer_emitted: false
+  agent_card_found: false

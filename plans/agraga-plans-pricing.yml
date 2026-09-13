@@ -1,0 +1,29 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.agraga.com/products
+note: >-
+  Agraga publishes no pricing page and no plan tiers. Its marketing site (a Vite/React single-page
+  application) declares exactly seven routes — /, /about, /ai, /contact, /privacy-policy, /products,
+  /terms-of-use — and none of them is a pricing route; the string "pricing" appears in the
+  application bundle only as the product feature label "New: AI-powered pricing". Agraga sells
+  freight, not software: rates are quoted per shipment inside the authenticated booking platform
+  (booking.agraga.com), served by a private rate service at pricing.agraga.com which answers every
+  anonymous request with 401 {"error":"No user in request"}. The commercial motion for a new
+  customer is a Calendly consultation booking, not a self-serve plan. There is therefore no
+  published plan, quota, overage or API pricing to record.
+pricing_model: per-shipment quotation, quoted inside the authenticated platform
+self_serve: false
+published_tiers: false
+plan_count: 0
+plans: []
+evidence:
+- url: https://www.agraga.com/products
+  status: 200
+  note: Products page lists six service lines (ocean freight, air freight, customs broking, warehousing,
+    e-commerce fulfilment, embedded finance) with no prices.
+- url: https://pricing.agraga.com/
+  status: 401
+  note: Private rate service; no anonymous access.
+- url: https://www.agraga.com/pricing
+  status: 200
+  note: Not a declared route — SPA catch-all returns the marketing shell, not a pricing page.

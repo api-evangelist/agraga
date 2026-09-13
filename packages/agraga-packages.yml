@@ -1,0 +1,35 @@
+generated: '2026-09-12'
+method: searched
+source: >-
+  Searched registry.npmjs.org (query "agraga", 0 results), pypi.org/pypi/agraga/json (404),
+  the GitHub repository and organization APIs (api.github.com/orgs/agraga -> 404; a repository
+  search for "agraga" returned 57 results, every one of them unrelated — Portuguese/Spanish
+  "agrega"/"agregação" misspellings, a Bengali "Agragati" society app, and personal profile
+  repos), and the SDK/download surface of https://www.agraga.com/ , which has none. Probed
+  2026-09-12.
+package_count: 0
+official_sdk_count: 0
+packages: []
+note: >-
+  Agraga ships no first-party client libraries, SDKs or CLIs in any public registry, which follows
+  from publishing no public API. The company has no GitHub organization at all (api.github.com/orgs/agraga
+  returns 404) and its marketing site contains no download, SDK or integration surface — the string
+  "API" does not appear anywhere in its application bundle. No `Packages` and no `SDKs` pointer is
+  emitted in apis.yml: this file records a checked absence across eight registries, and a pointer
+  would assert a distribution surface Agraga does not have.
+registries_checked:
+- registry: npm
+  query: agraga
+  results: 0
+- registry: pypi
+  query: agraga
+  results: 0
+  status: 404
+- registry: github
+  query: org:agraga
+  results: 0
+  status: 404
+- registry: github-search
+  query: agraga
+  results: 57
+  note: All unrelated to Virya Logistics Technologies / Agraga; rejected on ownership.
